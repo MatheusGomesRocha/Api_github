@@ -14,5 +14,5 @@ Esse projeto foi feito com o intuíto de treinar o consumo de API com fetch.
 ## Meta
 
 - Matheus Gomes
-- ![#000000](https://via.placeholder.com/15/000000/000000?text=+) `Github`
-- ![#0e76a8](https://via.placeholder.com/15/0e76a8/000000?text=+) `Linkedin`
+- Github - https://github.com/MatheusGomesRocha
+- Linkedin - `https://www.linkedin.com/in/matheus-gomes-2a61a8190/` 
