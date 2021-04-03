@@ -10,9 +10,9 @@ function App() {
     });
 
     const [repos, setRepos] = useState([]);
-
-
     const [search, setSearch] = useState('MatheusGomesRocha');
+
+    const [language, setLanguage] = useState('');
 
     const getData = () => {
         Promise.all([
@@ -24,7 +24,6 @@ function App() {
 
             setUser({login: userJson.login, name: userJson.name, avatar: userJson.avatar_url});
             setRepos(reposJson);
-
         })
     }
 
@@ -32,27 +31,64 @@ function App() {
         getData();
     }, [setSearch])
 
+
     const userSearch = (v) => {
         setSearch(v.target.value);
     }
 
     return (
-        <div className="App">
+        <div className="app">
+            <div className={"side"}>
+                <input onChange={userSearch} className={"input"}/>
+                <div className={"btn"} onClick={getData}>
+                    olá mundo
+                </div>
 
-            <input onChange={userSearch} className={"input"}/>
-            <div className={"btn"} onClick={getData}>
-                olá mundo
+                <img className={"img"} src={user.avatar}/>
             </div>
 
-            <img width="100px" height={"100px"} src={user.avatar}/>
+            <div className={"side"}>
 
-            {repos.map((item, k) => (
-                <div key={k}>
-                    <span>{item.name}</span>
-                    <span>{item.language}</span>
+                <div className={"arrayDiv"}>
+                    {repos.map((item, k) => (
+                        <div className={"arrayItem"} key={k}>
+                            <div className={"linkDiv"}>
+                                <a className={"link"} href={item.html_url}>{item.name}</a>
+                            </div>
+
+                            <div className={"languageDiv"}>
+                                <div style={{
+                                    backgroundColor:
+                                        item.language == 'JavaScript' && '#F1E05A' ||
+                                        item.language == 'Java' && '#B07219' ||
+                                        item.language == 'HTML' && '#E34C26' ||
+                                        item.language == 'Python' && '#3572A5' ||
+                                        item.language == 'GO' && '#00ADD8' ||
+                                        item.language == 'Shell' && '#89E051' ||
+                                        item.language == 'C' && '#555555' ||
+                                        item.language == 'PHP' && '#4F5D95' ||
+                                        item.language == 'PowerShell' && '#012456' ||
+                                        item.language == 'Pascal' && '#E3F171' ||
+                                        item.language == 'C++' && '#F34B7D' ||
+                                        item.language == 'Assembly' && '#6E4C13' ||
+                                        item.language == 'Ruby' && '#701516' ||
+                                        '#fff'
+                                }} className={"ballFull"} />
+                                <span className={"language"}>{item.language}</span>
+
+                                <div className={"star"}>
+                                    <span className={"language"}>Stars - {item.stargazers_count}</span>
+                                </div>
+
+                                <div className={"fork"}>
+                                    <span className={"language"}>{item.forks}</span>
+                                </div>
+                            </div>
+                        </div>
+                    ))}
                 </div>
-            ))}
 
+            </div>
         </div>
     );
 }
