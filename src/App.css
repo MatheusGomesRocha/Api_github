@@ -1,17 +1,61 @@
 .app {
     display: grid;
-    grid-template-columns: 20% 75%;
-    grid-gap: 5%;
+    grid-template-columns: 23% 75%;
+    grid-gap: 5px;
     padding: 50px;
-    font-family: "Times New Roman";
-    background-color: #000;
+    background-color: #0D1117;
 }
 
-
+.app .side {
+    display: flex;
+    flex-direction: column;
+}
 .app .side .img {
     width: 300px;
     height: 300px;
     border-radius: 50%;
+}
+.app .side .userInfo {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+.app .side .userInfo .name {
+    color: #fff;
+    font-size: 30px;
+    width: 500px;
+}
+.app .side .userInfo .login {
+    color: #777;
+    font-size: 23px;
+}
+.app .side .btns {
+    display: grid;
+    grid-template-columns: 75% 22%;
+    grid-gap: 3%;
+    margin-top: 15px;
+}
+.app .side .btns .btn {
+    color: #aaa;
+    background-color: #21262D;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    border-radius: 5px;
+    border: 1px solid #777;
+    transition: 150ms;
+    cursor: pointer;
+}
+.app .side .btns .btn span {
+    font-weight: bold;
+    font-size: 14px;
+    color: #C3C6CA;
+}
+
+.app .side .bio {
+    color: #C3C6CA;
+    margin-top: 15px;
+    font-size: 18px;
 }
 
 .app .side .arrayDiv {
@@ -52,6 +96,11 @@
     color: #999;
 }
 
+
+.app .side .btns .btn:hover {
+    background-color: #30363D;
+    border: 1px solid #C3C6CA;
+}
 
 .app .side .arrayDiv .arrayItem .linkDiv .link:hover {
     border-bottom: 1px solid #58A6FA;

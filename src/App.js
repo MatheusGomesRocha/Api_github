@@ -1,12 +1,16 @@
 import React, {useState, useEffect} from 'react';
-import logo from './logo.svg';
 import './App.css';
+
+import StarIcon from './svg/star_border';
+import ForkIcon from './svg/fork';
+import UsersIcon from './svg/2-users';
 
 function App() {
     const [user, setUser] = useState({
         name: '',
         login: '',
         avatar: '',
+        bio: '',
     });
 
     const [repos, setRepos] = useState([]);
@@ -22,7 +26,7 @@ function App() {
             const userJson = await response[0].json();
             const reposJson = await response[1].json();
 
-            setUser({login: userJson.login, name: userJson.name, avatar: userJson.avatar_url});
+            setUser({login: userJson.login, name: userJson.name, avatar: userJson.avatar_url, bio: userJson.bio});
             setRepos(reposJson);
         })
     }
@@ -45,6 +49,27 @@ function App() {
                 </div>
 
                 <img className={"img"} src={user.avatar}/>
+
+                <div className={"userInfo"}>
+                    <span className={"name"}>{user.name}</span>
+                    <span className={"login"}>{user.login}</span>
+                </div>
+
+                <div className={"btns"}>
+                    <div style={{alignItems: 'center'}} className={"btn"}>
+                        <span>Follow</span>
+                    </div>
+                    <div className={"btn"}>
+                        <span style={{fontSize: 18}} >...</span>
+                    </div>
+                </div>
+
+                <span className={"bio"}>{user.bio}</span>
+
+                <div className={"ratingAndFork"}>
+                    <UsersIcon />
+                    <StarIcon />
+                </div>
             </div>
 
             <div className={"side"}>
