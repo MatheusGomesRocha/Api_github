@@ -48,7 +48,6 @@ function App() {
                 blog: userJson.blog,
                 twitter: userJson.twitter_username,
             });
-            console.log(userJson)
             setRepos(reposJson);
         })
     }
@@ -130,7 +129,7 @@ function App() {
                     {user.twitter &&
                     <div className={"defaultInfoDiv"}>
                         <TwitterIcon/>
-                        <a href={user.twitter} target={"_blank"} className={"link"}>@{user.twitter}</a>
+                        <a href={"https://twitter.com/"+user.twitter} target={"_blank"} className={"link"}>@{user.twitter}</a>
                     </div>
                     }
                 </div>
