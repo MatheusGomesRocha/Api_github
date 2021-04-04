@@ -58,6 +58,67 @@
     font-size: 18px;
 }
 
+
+.app .side .followAndStars {
+    display: flex;
+    margin-top: 15px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.app .side .followAndStars .follow {
+    display: flex;
+    align-items: center;
+}
+.app .side .followAndStars .stars {
+    display: flex;
+    align-items: center;
+}
+.app .side .followAndStars .smallestBall {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: #C3C6CA;
+    display: flex;
+    align-items: center;
+    margin: 4px 10px 0 10px;
+}
+.app .side .followAndStars .followText {
+    color: #999;
+}
+
+.app .side .emailDiv {
+    display: flex;
+    margin-top: 15px;
+    align-items: center;
+}
+.app .side .email {
+    margin-left: 10px;
+    color: #C3C6CA;
+    text-decoration: none;
+}
+
+.app .side .moreInfo {
+    margin-top: 15px;
+}
+.app .side .moreInfo .defaultInfoDiv {
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+}
+.app .side .moreInfo .defaultInfoDiv .link {
+    color: #C3C6CA;
+    text-decoration: none;
+    margin-left: 10px;
+    transition: 250ms;
+    border-bottom: 1px solid transparent;
+}
+
+
+
+
+
+
+
 .app .side .arrayDiv {
     display: grid;
     grid-template-columns: auto auto;
@@ -101,8 +162,13 @@
     background-color: #30363D;
     border: 1px solid #C3C6CA;
 }
-
+.app .side .moreInfo .defaultInfoDiv .link:hover {
+    color: #58A6FA;
+    border-bottom: 1px solid #58A6FA;
+}
 .app .side .arrayDiv .arrayItem .linkDiv .link:hover {
     border-bottom: 1px solid #58A6FA;
 }
+
+
 

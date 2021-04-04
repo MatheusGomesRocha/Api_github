@@ -4,13 +4,23 @@ import './App.css';
 import StarIcon from './svg/star_border';
 import ForkIcon from './svg/fork';
 import UsersIcon from './svg/2-users';
+import EmailIcon from './svg/email';
+import PinIcon from './svg/pin';
+import LinkIcon from './svg/link';
+import TwitterIcon from './svg/twitter';
 
 function App() {
     const [user, setUser] = useState({
         name: '',
+        email: '',
         login: '',
         avatar: '',
         bio: '',
+        followers: '',
+        following: '',
+        location: '',
+        blog: '',
+        twitter: '',
     });
 
     const [repos, setRepos] = useState([]);
@@ -26,7 +36,19 @@ function App() {
             const userJson = await response[0].json();
             const reposJson = await response[1].json();
 
-            setUser({login: userJson.login, name: userJson.name, avatar: userJson.avatar_url, bio: userJson.bio});
+            setUser({
+                login: userJson.login,
+                name: userJson.name,
+                email: userJson.email,
+                avatar: userJson.avatar_url,
+                bio: userJson.bio,
+                followers: userJson.followers,
+                following: userJson.following,
+                location: userJson.location,
+                blog: userJson.blog,
+                twitter: userJson.twitter_username,
+            });
+            console.log(userJson)
             setRepos(reposJson);
         })
     }
@@ -60,16 +82,60 @@ function App() {
                         <span>Follow</span>
                     </div>
                     <div className={"btn"}>
-                        <span style={{fontSize: 18}} >...</span>
+                        <span style={{fontSize: 18}}>...</span>
                     </div>
                 </div>
 
                 <span className={"bio"}>{user.bio}</span>
 
-                <div className={"ratingAndFork"}>
-                    <UsersIcon />
-                    <StarIcon />
+                <div className={"followAndStars"}>
+                    <div className={"follow"}>
+                        <UsersIcon/>
+                        <span className={"followText"}><strong
+                            style={{color: '#C3C6CA', marginRight: 5}}>{user.followers}</strong>followers</span>
+                        <div className={"smallestBall"}></div>
+                        <span className={"followText"}><strong
+                            style={{color: '#C3C6CA', marginRight: 5}}>{user.following}</strong>following</span>
+                        <div className={"smallestBall"}></div>
+                    </div>
+
+                    <div className={"stars"}>
+                        <StarIcon/>
+                        <span className={"followText"}><strong style={{color: '#C3C6CA'}}>2.1k</strong></span>
+                    </div>
                 </div>
+
+                {user.email &&
+                    <div className={"emailDiv"}>
+                        <EmailIcon/>
+                        <span className={"email"}>{user.email}</span>
+                    </div>
+                }
+
+                <div className={"moreInfo"}>
+                    {user.location &&
+                        <div className={"defaultInfoDiv"}>
+                            <PinIcon/>
+                            <span className={"email"}>{user.location}</span>
+                        </div>
+                    }
+
+                    {user.blog &&
+                        <div className={"defaultInfoDiv"}>
+                            <LinkIcon/>
+                            <a href={user.blog} target={"_blank"} className={"link"}>{user.blog}</a>
+                        </div>
+                    }
+
+                    {user.twitter &&
+                    <div className={"defaultInfoDiv"}>
+                        <TwitterIcon/>
+                        <a href={user.twitter} target={"_blank"} className={"link"}>@{user.twitter}</a>
+                    </div>
+                    }
+                </div>
+
+
             </div>
 
             <div className={"side"}>
@@ -98,7 +164,7 @@ function App() {
                                         item.language == 'Assembly' && '#6E4C13' ||
                                         item.language == 'Ruby' && '#701516' ||
                                         '#fff'
-                                }} className={"ballFull"} />
+                                }} className={"ballFull"}/>
                                 <span className={"language"}>{item.language}</span>
 
                                 <div className={"star"}>

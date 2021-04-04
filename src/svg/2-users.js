@@ -1,6 +1,6 @@
 export default () => {
 	return(
-	<svg width={"15px"} height={"15px"} fill={"#777"} version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 611.998 611.998">
+	<svg style={{marginRight: 5}} width={"15px"} height={"15px"} fill={"#777"} version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 611.998 611.998">
 		<g>
 		<g>
 		<path d="M316.343,106.541c12.479,13.989,21.299,31.267,26.218,51.353c4.667,19.067,5.711,40.275,3.107,63.04
