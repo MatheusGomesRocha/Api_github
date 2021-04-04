@@ -145,6 +145,7 @@ function App() {
                         <div className={"arrayItem"} key={k}>
                             <div className={"linkDiv"}>
                                 <a className={"link"} href={item.html_url}>{item.name}</a>
+                                <span className={"description"}>{item.description}</span>
                             </div>
 
                             <div className={"languageDiv"}>

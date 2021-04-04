@@ -129,23 +129,38 @@
 .app .side .arrayDiv .arrayItem {
     border: 1px solid #ddd;
     border-radius: 10px;
-    height: 90px;
+    height: 100px;
     padding: 15px;
     display: flex;
     flex-direction: column;
 }
 
+.app .side .arrayDiv .arrayItem .linkDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
 .app .side .arrayDiv .arrayItem .linkDiv .link {
     text-decoration: none;
     font-size: 20px;
     color: #58A6FA;
-    border-bottom: 1px solid transparent;
+    border-bottom: 1px solid yellow;
+}
+.app .side .arrayDiv .arrayItem .linkDiv .description {
+    color: #C3C6CA;
+    font-size: 12px;
+    margin-top: 10px;
+    height: 20px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 200px;
 }
 
 .app .side .arrayDiv .arrayItem .languageDiv {
     display: flex;
     align-items: center;
-    margin-top: 40px;
+    margin-top: 20px;
 }
 .app .side .arrayDiv .arrayItem .languageDiv .ballFull {
     width: 15px;
