@@ -2,6 +2,46 @@
     background-color: #0D1117;
 }
 
+.app .header {
+    display: flex;
+    align-items: center;
+    padding-left: 50px;
+    height: 70px;
+    background-color: #161B22;
+}
+.app .header .logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+.app .header .inputDiv {
+    display: flex;
+    align-items: center;
+    margin-left: 15px;
+    border: 1px solid #444;
+    background-color: #0D1117;
+    width: 250px;
+    border-radius: 5px;
+}
+.app .header .inputDiv .input {
+    border: none;
+    height: 25px;
+    padding-left: 10px;
+    background-color: transparent;
+    flex: 1;
+    color: #C3C6CA;
+}
+.app .header .inputDiv .searchIcon {
+    width: 30px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+
 .app .changeView {
     display: flex;
     border-bottom: 1px solid #777;
@@ -183,9 +223,9 @@
     border-bottom: 1px solid transparent;
 }
 .app .mainDiv .side .arrayDiv .arrayItem .linkDiv .description {
-    color: #C3C6CA;
-    font-size: 12px;
-    margin-top: 10px;
+    color: #777;
+    font-size: 14px;
+    margin-top: 5px;
     height: 20px;
     white-space: nowrap;
     overflow: hidden;
@@ -196,7 +236,7 @@
 .app .mainDiv .side .arrayDiv .arrayItem .languageDiv {
     display: flex;
     align-items: center;
-    margin-top: 20px;
+    margin-top: 25px;
 }
 .app .mainDiv .side .arrayDiv .arrayItem .languageDiv .ballFull {
     width: 15px;
@@ -221,6 +261,15 @@
 }
 
 
+
+.app .header .inputDiv:focus-within {
+    animation: growWidth 400ms;
+    border: 1px solid #58A6FA;
+    animation-fill-mode: forwards;
+}
+.input {
+    outline: 0;
+}
 .app .changeView .defaultBtn:hover {
     border-bottom: 2px solid #999;
 }
@@ -241,3 +290,6 @@
 
 
 
+@keyframes growWidth {
+    to{width: 350px}
+}

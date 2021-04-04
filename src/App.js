@@ -10,6 +10,8 @@ import LinkIcon from './svg/link';
 import TwitterIcon from './svg/twitter';
 import BookIcon from './svg/book';
 import BookmarkIcon from './svg/bookmark';
+import SearchIcon from './svg/search';
+import GithubIcon from './svg/github';
 
 function App() {
     const [user, setUser] = useState({
@@ -32,6 +34,7 @@ function App() {
     const [language, setLanguage] = useState('');
 
     const [view, setView] = useState('Overview');
+    const [searchHover, setSearchHover] = useState(false);
 
     const getData = () => {
         Promise.all([
@@ -67,18 +70,33 @@ function App() {
         setSearch(v.target.value);
     }
 
+    const handleKey = (e) => {
+        if(e.key === 'Enter') {
+            getData();
+        }
+    }
     return (
         <div className="app">
+            <div className={"header"}>
+                <GithubIcon />
+
+                <div className={"inputDiv"}>
+                    <input onKeyPress={handleKey} onChange={userSearch} className={"input"} type={"text"} placeholder={"Search for a user on Github"} />
+                    <div onClick={getData} onMouseOver={() => setSearchHover(true)} onMouseOut={() => setSearchHover(false)} className={"searchIcon"}>
+                        <SearchIcon />
+                    </div>
+                </div>
+            </div>
 
             <div className={"changeView"}>
-                <div onClick={() => setView('Overview')} style={{marginLeft: '30%', width: 150, borderBottomColor: view == 'Overview' && '#F9826C'}} className={"defaultBtn"}>
-                    <BookIcon fill={view == 'Overview' ? '#c3c6ca' : '#777'} />
-                    <span style={{color: view == 'Overview' && '#C3C6CA'}} className={"defaultText"}>Overview</span>
+                <div onClick={() => setView('Overview')} style={{marginLeft: '30%', width: 150, borderBottomColor: view === 'Overview' && '#F9826C'}} className={"defaultBtn"}>
+                    <BookIcon fill={view === 'Overview' ? '#c3c6ca' : '#777'} />
+                    <span style={{color: view === 'Overview' && '#C3C6CA'}} className={"defaultText"}>Overview</span>
                 </div>
 
-                <div onClick={() => setView('Repositories')} style={{width: 220, borderBottomColor: view == 'Repositories' && '#F9826C'}} className={"defaultBtn"}>
-                    <BookmarkIcon fill={view == 'Repositories' ? '#c3c6ca' : '#777'} />
-                    <span style={{color: view == 'Repositories' && '#C3C6CA'}} className={"defaultText"}>Repositories</span>
+                <div onClick={() => setView('Repositories')} style={{width: 220, borderBottomColor: view === 'Repositories' && '#F9826C'}} className={"defaultBtn"}>
+                    <BookmarkIcon fill={view === 'Repositories' ? '#c3c6ca' : '#777'} />
+                    <span style={{color: view === 'Repositories' && '#C3C6CA'}} className={"defaultText"}>Repositories</span>
                     <div className={"qtdRepos"}>
                         <span style={{color: '#999', fontSize: 14}}>{qtdRepos}</span>
                     </div>
@@ -87,11 +105,6 @@ function App() {
 
             <div className={"mainDiv"}>
                 <div className={"side"}>
-                    <input onChange={userSearch} className={"input"}/>
-                    <div className={"btn"} onClick={getData}>
-                        olá mundo
-                    </div>
-
                     <img className={"img"} src={user.avatar}/>
 
                     <div className={"userInfo"}>
@@ -176,19 +189,19 @@ function App() {
                                     <>
                                         <div style={{
                                             backgroundColor:
-                                                item.language == 'JavaScript' && '#F1E05A' ||
-                                                item.language == 'Java' && '#B07219' ||
-                                                item.language == 'HTML' && '#E34C26' ||
-                                                item.language == 'Python' && '#3572A5' ||
-                                                item.language == 'GO' && '#00ADD8' ||
-                                                item.language == 'Shell' && '#89E051' ||
-                                                item.language == 'C' && '#555555' ||
-                                                item.language == 'PHP' && '#4F5D95' ||
-                                                item.language == 'PowerShell' && '#012456' ||
-                                                item.language == 'Pascal' && '#E3F171' ||
-                                                item.language == 'C++' && '#F34B7D' ||
-                                                item.language == 'Assembly' && '#6E4C13' ||
-                                                item.language == 'Ruby' && '#701516' ||
+                                                item.language === 'JavaScript' && '#F1E05A' ||
+                                                item.language === 'Java' && '#B07219' ||
+                                                item.language === 'HTML' && '#E34C26' ||
+                                                item.language === 'Python' && '#3572A5' ||
+                                                item.language === 'GO' && '#00ADD8' ||
+                                                item.language === 'Shell' && '#89E051' ||
+                                                item.language === 'C' && '#555555' ||
+                                                item.language === 'PHP' && '#4F5D95' ||
+                                                item.language === 'PowerShell' && '#012456' ||
+                                                item.language === 'Pascal' && '#E3F171' ||
+                                                item.language === 'C++' && '#F34B7D' ||
+                                                item.language === 'Assembly' && '#6E4C13' ||
+                                                item.language === 'Ruby' && '#701516' ||
                                                 '#fff'
                                         }} className={"ballFull"}/>
 

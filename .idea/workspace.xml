@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ae59ebcb-eda7-469f-8fc3-6e2a75d94f79" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/svg/github.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/svg/search.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
@@ -47,7 +49,7 @@
       <workItem from="1617404184050" duration="2244000" />
       <workItem from="1617411695577" duration="4728000" />
       <workItem from="1617449048516" duration="8820000" />
-      <workItem from="1617536412277" duration="7755000" />
+      <workItem from="1617536412277" duration="10695000" />
     </task>
     <servers />
   </component>
@@ -71,14 +73,15 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/App.js</url>
-          <line>43</line>
-          <option name="timeStamp" value="1" />
+          <line>226</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/App.js</url>
-          <line>213</line>
+          <line>90</line>
           <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="3" />
+          <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
