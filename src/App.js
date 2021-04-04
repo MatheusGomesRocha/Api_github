@@ -8,6 +8,8 @@ import EmailIcon from './svg/email';
 import PinIcon from './svg/pin';
 import LinkIcon from './svg/link';
 import TwitterIcon from './svg/twitter';
+import BookIcon from './svg/book';
+import BookmarkIcon from './svg/bookmark';
 
 function App() {
     const [user, setUser] = useState({
@@ -69,13 +71,13 @@ function App() {
         <div className="app">
 
             <div className={"changeView"}>
-                <div onClick={() => setView('Overview')} style={{width: 150, borderBottomColor: view == 'Overview' && '#F9826C'}} className={"defaultBtn"}>
-                    <EmailIcon />
+                <div onClick={() => setView('Overview')} style={{marginLeft: '30%', width: 150, borderBottomColor: view == 'Overview' && '#F9826C'}} className={"defaultBtn"}>
+                    <BookIcon fill={view == 'Overview' ? '#c3c6ca' : '#777'} />
                     <span style={{color: view == 'Overview' && '#C3C6CA'}} className={"defaultText"}>Overview</span>
                 </div>
 
                 <div onClick={() => setView('Repositories')} style={{width: 220, borderBottomColor: view == 'Repositories' && '#F9826C'}} className={"defaultBtn"}>
-                    <EmailIcon />
+                    <BookmarkIcon fill={view == 'Repositories' ? '#c3c6ca' : '#777'} />
                     <span style={{color: view == 'Repositories' && '#C3C6CA'}} className={"defaultText"}>Repositories</span>
                     <div className={"qtdRepos"}>
                         <span style={{color: '#999', fontSize: 14}}>{qtdRepos}</span>

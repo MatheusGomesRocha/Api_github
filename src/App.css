@@ -3,7 +3,6 @@
 }
 
 .app .changeView {
-    margin-left: 30%;
     display: flex;
     border-bottom: 1px solid #777;
     padding-top: 50px;
@@ -20,8 +19,7 @@
 }
 .app .changeView .defaultBtn .defaultText {
     color: #777;
-    margin-left: 10px;
-    font-size: 18px;
+    margin: -3px 0 0 10px;
     transition: 250ms;
 }
 .app .changeView .defaultBtn .qtdRepos {
@@ -224,7 +222,7 @@
 
 
 .app .changeView .defaultBtn:hover {
-    border-bottom: 2px solid #C3C6CA;
+    border-bottom: 2px solid #999;
 }
 .app .changeView .defaultBtn:hover .defaultText {
     color: #C3C6CA;
