@@ -153,8 +153,20 @@
     border-radius: 50%;
 }
 .app .side .arrayDiv .arrayItem .languageDiv .language {
-    margin-left: 5px;
+    margin: 0 15px 0 5px;
     color: #999;
+}
+.app .side .arrayDiv .arrayItem .languageDiv .starDiv {
+    display: flex;
+    align-items: center;
+}
+.app .side .arrayDiv .arrayItem .languageDiv .forkDiv {
+    display: flex;
+    align-items: center;
+    margin-left: 15px;
+}
+.app .side .arrayDiv .arrayItem .languageDiv .starText {
+    color: #777;
 }
 
 

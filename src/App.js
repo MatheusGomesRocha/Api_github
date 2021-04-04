@@ -105,31 +105,32 @@ function App() {
                 </div>
 
                 {user.email &&
-                    <div className={"emailDiv"}>
-                        <EmailIcon/>
-                        <span className={"email"}>{user.email}</span>
-                    </div>
+                <div className={"emailDiv"}>
+                    <EmailIcon/>
+                    <span className={"email"}>{user.email}</span>
+                </div>
                 }
 
                 <div className={"moreInfo"}>
                     {user.location &&
-                        <div className={"defaultInfoDiv"}>
-                            <PinIcon/>
-                            <span className={"email"}>{user.location}</span>
-                        </div>
+                    <div className={"defaultInfoDiv"}>
+                        <PinIcon/>
+                        <span className={"email"}>{user.location}</span>
+                    </div>
                     }
 
                     {user.blog &&
-                        <div className={"defaultInfoDiv"}>
-                            <LinkIcon/>
-                            <a href={user.blog} target={"_blank"} className={"link"}>{user.blog}</a>
-                        </div>
+                    <div className={"defaultInfoDiv"}>
+                        <LinkIcon/>
+                        <a href={user.blog} target={"_blank"} className={"link"}>{user.blog}</a>
+                    </div>
                     }
 
                     {user.twitter &&
                     <div className={"defaultInfoDiv"}>
                         <TwitterIcon/>
-                        <a href={"https://twitter.com/"+user.twitter} target={"_blank"} className={"link"}>@{user.twitter}</a>
+                        <a href={"https://twitter.com/" + user.twitter} target={"_blank"}
+                           className={"link"}>@{user.twitter}</a>
                     </div>
                     }
                 </div>
@@ -147,31 +148,37 @@ function App() {
                             </div>
 
                             <div className={"languageDiv"}>
-                                <div style={{
-                                    backgroundColor:
-                                        item.language == 'JavaScript' && '#F1E05A' ||
-                                        item.language == 'Java' && '#B07219' ||
-                                        item.language == 'HTML' && '#E34C26' ||
-                                        item.language == 'Python' && '#3572A5' ||
-                                        item.language == 'GO' && '#00ADD8' ||
-                                        item.language == 'Shell' && '#89E051' ||
-                                        item.language == 'C' && '#555555' ||
-                                        item.language == 'PHP' && '#4F5D95' ||
-                                        item.language == 'PowerShell' && '#012456' ||
-                                        item.language == 'Pascal' && '#E3F171' ||
-                                        item.language == 'C++' && '#F34B7D' ||
-                                        item.language == 'Assembly' && '#6E4C13' ||
-                                        item.language == 'Ruby' && '#701516' ||
-                                        '#fff'
-                                }} className={"ballFull"}/>
-                                <span className={"language"}>{item.language}</span>
+                                {item.language &&
+                                <>
+                                    <div style={{
+                                        backgroundColor:
+                                            item.language == 'JavaScript' && '#F1E05A' ||
+                                            item.language == 'Java' && '#B07219' ||
+                                            item.language == 'HTML' && '#E34C26' ||
+                                            item.language == 'Python' && '#3572A5' ||
+                                            item.language == 'GO' && '#00ADD8' ||
+                                            item.language == 'Shell' && '#89E051' ||
+                                            item.language == 'C' && '#555555' ||
+                                            item.language == 'PHP' && '#4F5D95' ||
+                                            item.language == 'PowerShell' && '#012456' ||
+                                            item.language == 'Pascal' && '#E3F171' ||
+                                            item.language == 'C++' && '#F34B7D' ||
+                                            item.language == 'Assembly' && '#6E4C13' ||
+                                            item.language == 'Ruby' && '#701516' ||
+                                            '#fff'
+                                    }} className={"ballFull"}/>
 
-                                <div className={"star"}>
-                                    <span className={"language"}>Stars - {item.stargazers_count}</span>
+                                    <span className={"language"}>{item.language}</span>
+                                </>
+                                }
+                                <div className={"starDiv"}>
+                                    <StarIcon/>
+                                    <span className={"starText"}>{item.stargazers_count}</span>
                                 </div>
 
-                                <div className={"fork"}>
-                                    <span className={"language"}>{item.forks}</span>
+                                <div className={"forkDiv"}>
+                                    <ForkIcon/>
+                                    <span className={"starText"}>{item.forks}</span>
                                 </div>
                             </div>
                         </div>
