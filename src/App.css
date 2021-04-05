@@ -222,7 +222,6 @@
     grid-gap: 20px;
     margin-left: 50px;
 }
-
 .app .mainDiv .side .arrayDiv .arrayItem {
     border: 1px solid #ddd;
     border-radius: 10px;
@@ -231,20 +230,19 @@
     display: flex;
     flex-direction: column;
 }
-
-.app .mainDiv .side .arrayDiv .arrayItem .linkDiv {
+.app .mainDiv .side .linkDiv {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
 }
-.app .mainDiv .side .arrayDiv .arrayItem .linkDiv .link {
+.app .mainDiv .side .link {
     text-decoration: none;
     font-size: 20px;
     color: #58A6FA;
     border-bottom: 1px solid transparent;
 }
-.app .mainDiv .side .arrayDiv .arrayItem .linkDiv .description {
-    color: #777;
+.app .mainDiv .side .description {
+    color: #999;
     font-size: 14px;
     margin-top: 5px;
     height: 20px;
@@ -253,34 +251,76 @@
     text-overflow: ellipsis;
     width: 200px;
 }
-
-.app .mainDiv .side .arrayDiv .arrayItem .languageDiv {
+.app .mainDiv .side .languageDiv {
     display: flex;
     align-items: center;
     margin-top: 25px;
 }
-.app .mainDiv .side .arrayDiv .arrayItem .languageDiv .ballFull {
+.app .mainDiv .side .languageDiv .ballFull {
     width: 15px;
     height: 15px;
     border-radius: 50%;
 }
-.app .mainDiv .side .arrayDiv .arrayItem .languageDiv .language {
+.app .mainDiv .side .languageDiv .language {
     margin: 0 15px 0 5px;
     color: #999;
 }
-.app .mainDiv .side .arrayDiv .arrayItem .languageDiv .starDiv {
+.app .mainDiv .side .languageDiv .starDiv {
     display: flex;
     align-items: center;
 }
-.app .mainDiv .side .arrayDiv .arrayItem .languageDiv .forkDiv {
+.app .mainDiv .side .languageDiv .forkDiv {
     display: flex;
     align-items: center;
     margin-left: 15px;
 }
-.app .mainDiv .side .arrayDiv .arrayItem .languageDiv .starText {
-    color: #777;
+.app .mainDiv .side .languageDiv .starText {
+    color: #999;
 }
 
+/** Array Repositories */
+.app .mainDiv .side .arrayDivRepos {
+    display: flex;
+    flex-direction: column;
+    margin-left: 50px;
+}
+.app .mainDiv .side .arrayDivRepos .repositories {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 100px;
+    padding: 15px;
+    border-bottom: 1px solid #777;
+}
+.app .mainDiv .side .arrayDivRepos .repositories .reposSideDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.app .mainDiv .side .arrayDivRepos .repositories .reposSideDiv .reposLink {
+    font-size: 22px;
+}
+
+
+.app .mainDiv .side .arrayDivRepos .repositories .btn {
+    color: #aaa;
+    background-color: #21262D;
+    height: 35px;
+    width: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    border: 1px solid #777;
+    transition: 150ms;
+    cursor: pointer;
+}
+.app .mainDiv .side .arrayDivRepos .repositories .btn span {
+    font-weight: bold;
+    font-size: 14px;
+    color: #C3C6CA;
+}
 
 
 .app .header .inputDiv:focus-within {
@@ -288,7 +328,7 @@
     border: 1px solid #58A6FA;
     animation-fill-mode: forwards;
 }
-.input {
+.input:focus {
     outline: 0;
 }
 .app .changeView .defaultBtn:hover {
@@ -297,7 +337,7 @@
 .app .changeView .defaultBtn:hover .defaultText {
     color: #C3C6CA;
 }
-.app .mainDiv .side .btns .btn:hover {
+.app .mainDiv .side .btns .btn:hover, .app .mainDiv .side .arrayDivRepos .repositories .btn:hover {
     background-color: #30363D;
     border: 1px solid #C3C6CA;
 }
@@ -305,7 +345,7 @@
     color: #58A6FA;
     border-bottom: 1px solid #58A6FA;
 }
-.app .mainDiv .side .arrayDiv .arrayItem .linkDiv .link:hover {
+.app .mainDiv .side .link:hover {
     border-bottom: 1px solid #58A6FA;
 }
 
