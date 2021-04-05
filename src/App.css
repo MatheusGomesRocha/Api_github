@@ -1,5 +1,14 @@
 .app {
     background-color: #0D1117;
+    min-height: 100vh;
+}
+.app .teste {
+    height: 60px;
+    width: 100%;
+    background-color: #fff;
+    position: fixed;
+    top: 0;
+    visibility: hidden;
 }
 
 .app .header {
@@ -8,6 +17,7 @@
     padding-left: 50px;
     height: 70px;
     background-color: #161B22;
+    z-index: 999;
 }
 .app .header .logo {
     width: 40px;
@@ -45,7 +55,18 @@
 .app .changeView {
     display: flex;
     border-bottom: 1px solid #777;
-    padding-top: 50px;
+    z-index: 999;
+    background-color: #0D1117;
+    height: 60px;
+    position: relative;
+}
+.app .changeView .hiddenInfo {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    left: 50px;
+    animation: fade 500ms;
 }
 .app .changeView .defaultBtn {
     display: flex;
@@ -53,7 +74,7 @@
     justify-content: center;
     width: 150px;
     cursor: pointer;
-    padding-bottom: 20px;
+    padding: 20px 0 10px 0;
     border-bottom: 2px solid transparent;
     transition: 250ms;
 }
@@ -80,7 +101,7 @@
     display: grid;
     grid-template-columns: 24% 75%;
     grid-gap: 1%;
-    padding: 50px;
+    padding: 30px 50px 50px 50px;
 }
 .app .mainDiv .side {
     display: flex;
@@ -97,7 +118,7 @@
     margin-top: 20px;
 }
 .app .mainDiv .side .userInfo .name {
-    color: #fff;
+    color: #C3C6CA;
     font-size: 30px;
     width: 500px;
 }
@@ -292,4 +313,8 @@
 
 @keyframes growWidth {
     to{width: 350px}
+}
+@keyframes fade {
+    from{opacity: 0}
+    to{opacity: 1}
 }

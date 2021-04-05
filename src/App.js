@@ -31,10 +31,27 @@ function App() {
     const [search, setSearch] = useState('MatheusGomesRocha');
     const [qtdRepos, setQtdRepos] = useState();
 
-    const [language, setLanguage] = useState('');
-
     const [view, setView] = useState('Overview');
-    const [searchHover, setSearchHover] = useState(false);
+    const [fixedChangeView, setFixedChangeView] = useState(false);
+    const [showInfoHidden, setShowInfoHidden] = useState(false);
+
+    const handleScroll = () => {        // Verifica o Scroll da pagina
+        if (document.documentElement.scrollTop > 70) {       // Se for maior que 0, fixa o Header e está na sessão Home
+            setFixedChangeView(true);
+        } if (document.documentElement.scrollTop < 70) {
+            setFixedChangeView(false);
+        } if (document.documentElement.scrollTop > 250) {
+            setShowInfoHidden(true);
+        } if (document.documentElement.scrollTop < 250) {
+            setShowInfoHidden(false);
+        }
+    }
+
+    useEffect(() => {       // Ao carregar a página já executa a função para pegar o valor do scroll
+        window.onscroll = () => {
+            handleScroll();
+        };
+    }, [])
 
     const getData = () => {
         Promise.all([
@@ -82,13 +99,23 @@ function App() {
 
                 <div className={"inputDiv"}>
                     <input onKeyPress={handleKey} onChange={userSearch} className={"input"} type={"text"} placeholder={"Search for a user on Github"} />
-                    <div onClick={getData} onMouseOver={() => setSearchHover(true)} onMouseOut={() => setSearchHover(false)} className={"searchIcon"}>
+                    <div onClick={getData} className={"searchIcon"}>
                         <SearchIcon />
                     </div>
                 </div>
             </div>
 
-            <div className={"changeView"}>
+            <div style={{
+                position: fixedChangeView && 'fixed',
+                width: fixedChangeView && '100%',
+                top: fixedChangeView && '0',
+            }} className={"changeView"}>
+                {showInfoHidden &&
+                    <div className={"hiddenInfo"}>
+                        <img style={{borderRadius: '50%'}} width={"30px"} height={"30px"} src={user.avatar} />
+                        <span style={{color: '#C3C6CA', fontSize: 18, marginLeft: 10}}>{user.login}</span>
+                    </div>
+                }
                 <div onClick={() => setView('Overview')} style={{marginLeft: '30%', width: 150, borderBottomColor: view === 'Overview' && '#F9826C'}} className={"defaultBtn"}>
                     <BookIcon fill={view === 'Overview' ? '#c3c6ca' : '#777'} />
                     <span style={{color: view === 'Overview' && '#C3C6CA'}} className={"defaultText"}>Overview</span>
@@ -178,6 +205,7 @@ function App() {
 
                     <div className={"arrayDiv"}>
                         {repos.map((item, k) => (
+
                             <div className={"arrayItem"} key={k}>
                                 <div className={"linkDiv"}>
                                     <a className={"link"} href={item.html_url}>{item.name}</a>
