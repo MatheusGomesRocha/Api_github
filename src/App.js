@@ -29,7 +29,16 @@ function App() {
 
     const [repos, setRepos] = useState([]);
     const [search, setSearch] = useState('MatheusGomesRocha');
+    const [searchRepos, setSearchRepos] = useState();
     const [qtdRepos, setQtdRepos] = useState();
+    const [repo, setRepo] = useState({
+        name: '',
+        description: '',
+        language: '',
+        stars: '',
+        forks: '',
+        updated: '',
+    });
 
     const [view, setView] = useState('Overview');
     const [fixedChangeView, setFixedChangeView] = useState(false);
@@ -60,9 +69,11 @@ function App() {
         Promise.all([
             fetch(`https://api.github.com/users/${search}`),
             fetch(`https://api.github.com/users/${search}/repos`),
+            fetch(`https://api.github.com/repos/${search}/${searchRepos}`)
         ]).then(async (response) => {
             const userJson = await response[0].json();
             const reposJson = await response[1].json();
+            const repoJson = await response[2].json();
 
             setUser({
                 login: userJson.login,
@@ -78,17 +89,30 @@ function App() {
             });
             setRepos(reposJson);
             setQtdRepos(userJson.public_repos);
+            setRepo({
+                name: repoJson.name,
+                description: repoJson.description,
+                language: repoJson.language,
+                stars: repoJson.stars,
+                forks: repoJson.forks,
+                updated: repoJson.updated_at
+            });
         })
     }
 
     useEffect(() => {
         getData();
-    }, [setSearch])
+    }, [setSearch]);
 
 
     const userSearch = (v) => {
         setSearch(v.target.value);
     }
+
+    const reposSearch = (v) => {
+        setSearchRepos(v.target.value);
+    }
+
 
     const handleKey = (e) => {
         if (e.key === 'Enter') {
@@ -103,7 +127,7 @@ function App() {
                 <div className={"inputDiv"}>
                     <input onKeyPress={handleKey} onChange={userSearch} className={"input"} type={"text"}
                            placeholder={"Search for a user on Github"}/>
-                    <div onClick={getData} className={"searchIcon"}>
+                    <div className={"searchIcon"}>
                         <SearchIcon/>
                     </div>
                 </div>
@@ -262,57 +286,132 @@ function App() {
                         </div>
                         :
                         <div className={"arrayDivRepos"}>
-                            {repos.map((item, k) => (
-                                <div className={"repositories"}>
-                                    <div className={"reposSideDiv"}>
-                                        <a href={item.html_url} className={"link"}>{item.name}</a>
-                                        <span className={"description"}>{item.description}</span>
+                            <div className={"inputAndBtns"}>
+                                <input onKeyPress={handleKey} onChange={reposSearch} className={"inputRepos"}
+                                       placeholder={"Find a repository..."}/>
 
-                                        <div className={"languageDiv"}>
-                                            {item.language &&
-                                            <>
-                                                <div style={{
-                                                    backgroundColor:
-                                                        item.language === 'JavaScript' && '#F1E05A' ||
-                                                        item.language === 'Java' && '#B07219' ||
-                                                        item.language === 'HTML' && '#E34C26' ||
-                                                        item.language === 'Python' && '#3572A5' ||
-                                                        item.language === 'GO' && '#00ADD8' ||
-                                                        item.language === 'Shell' && '#89E051' ||
-                                                        item.language === 'C' && '#555555' ||
-                                                        item.language === 'PHP' && '#4F5D95' ||
-                                                        item.language === 'PowerShell' && '#012456' ||
-                                                        item.language === 'Pascal' && '#E3F171' ||
-                                                        item.language === 'C++' && '#F34B7D' ||
-                                                        item.language === 'Assembly' && '#6E4C13' ||
-                                                        item.language === 'Ruby' && '#701516' ||
-                                                        '#fff'
-                                                }} className={"ballFull"}/>
-
-                                                <span className={"language"}>{item.language}</span>
-                                            </>
-                                            }
-                                            <div className={"starDiv"}>
-                                                <StarIcon/>
-                                                <span className={"starText"}>{item.stargazers_count}</span>
-                                            </div>
-
-                                            <div className={"forkDiv"}>
-                                                <ForkIcon/>
-                                                <span className={"starText"}>{item.forks}</span>
-                                            </div>
-
-                                            <span style={{marginLeft: 15}} className={"starText"}>Updated on {item.updated_at}</span>
-                                        </div>
-                                    </div>
-
-                                    <div className={"btn"}>
-                                        <StarIcon />
-                                        <span>Star</span>
-                                    </div>
-
+                                <div className={"btn"}>
+                                    <span style={{color: '#777'}}>Type:</span>
+                                    <span style={{color: '#C3C6CA', marginLeft: 5}}>All</span>
                                 </div>
-                            ))}
+
+                                <div className={"btn"}>
+                                    <span style={{color: '#777'}}>Language:</span>
+                                    <span style={{color: '#C3C6CA', marginLeft: 5}}>All</span>
+                                </div>
+                            </div>
+
+                            {repo.name ?
+                                <>
+                                    <div className={"repositories"}>
+
+                                        <div className={"reposSideDiv"}>
+                                            <a href={repo.html_url} className={"link"}>{repo.name}</a>
+                                            <span className={"description"}>{repo.description}</span>
+
+                                            <div className={"languageDiv"}>
+                                                {repo.language &&
+                                                <>
+                                                    <div style={{
+                                                        backgroundColor:
+                                                            repo.language === 'JavaScript' && '#F1E05A' ||
+                                                            repo.language === 'Java' && '#B07219' ||
+                                                            repo.language === 'HTML' && '#E34C26' ||
+                                                            repo.language === 'Python' && '#3572A5' ||
+                                                            repo.language === 'GO' && '#00ADD8' ||
+                                                            repo.language === 'Shell' && '#89E051' ||
+                                                            repo.language === 'C' && '#555555' ||
+                                                            repo.language === 'PHP' && '#4F5D95' ||
+                                                            repo.language === 'PowerShell' && '#012456' ||
+                                                            repo.language === 'Pascal' && '#E3F171' ||
+                                                            repo.language === 'C++' && '#F34B7D' ||
+                                                            repo.language === 'Assembly' && '#6E4C13' ||
+                                                            repo.language === 'Ruby' && '#701516' ||
+                                                            '#fff'
+                                                    }} className={"ballFull"}/>
+
+                                                    <span className={"language"}>{repo.language}</span>
+                                                </>
+                                                }
+                                                <div className={"starDiv"}>
+                                                    <StarIcon/>
+                                                    <span className={"starText"}>{repo.stargazers_count}</span>
+                                                </div>
+
+                                                <div className={"forkDiv"}>
+                                                    <ForkIcon/>
+                                                    <span className={"starText"}>{repo.forks}</span>
+                                                </div>
+
+                                                <span style={{marginLeft: 15}}
+                                                      className={"starText"}>Updated on {repo.updated}</span>
+                                            </div>
+                                        </div>
+
+                                        <div className={"btn"}>
+                                            <StarIcon/>
+                                            <span>Star</span>
+                                        </div>
+
+                                    </div>
+                                </>
+                                :
+                                <>
+                                    {repos.map((item, k) => (
+                                        <div className={"repositories"}>
+
+                                            <div className={"reposSideDiv"}>
+                                                <a href={item.html_url} className={"link"}>{item.name}</a>
+                                                <span className={"description"}>{item.description}</span>
+
+                                                <div className={"languageDiv"}>
+                                                    {item.language &&
+                                                    <>
+                                                        <div style={{
+                                                            backgroundColor:
+                                                                item.language === 'JavaScript' && '#F1E05A' ||
+                                                                item.language === 'Java' && '#B07219' ||
+                                                                item.language === 'HTML' && '#E34C26' ||
+                                                                item.language === 'Python' && '#3572A5' ||
+                                                                item.language === 'GO' && '#00ADD8' ||
+                                                                item.language === 'Shell' && '#89E051' ||
+                                                                item.language === 'C' && '#555555' ||
+                                                                item.language === 'PHP' && '#4F5D95' ||
+                                                                item.language === 'PowerShell' && '#012456' ||
+                                                                item.language === 'Pascal' && '#E3F171' ||
+                                                                item.language === 'C++' && '#F34B7D' ||
+                                                                item.language === 'Assembly' && '#6E4C13' ||
+                                                                item.language === 'Ruby' && '#701516' ||
+                                                                '#fff'
+                                                        }} className={"ballFull"}/>
+
+                                                        <span className={"language"}>{item.language}</span>
+                                                    </>
+                                                    }
+                                                    <div className={"starDiv"}>
+                                                        <StarIcon/>
+                                                        <span className={"starText"}>{item.stargazers_count}</span>
+                                                    </div>
+
+                                                    <div className={"forkDiv"}>
+                                                        <ForkIcon/>
+                                                        <span className={"starText"}>{item.forks}</span>
+                                                    </div>
+
+                                                    <span style={{marginLeft: 15}}
+                                                          className={"starText"}>Updated on {item.updated_at}</span>
+                                                </div>
+                                            </div>
+
+                                            <div className={"btn"}>
+                                                <StarIcon/>
+                                                <span>Star</span>
+                                            </div>
+
+                                        </div>
+                                    ))}
+                                </>
+                            }
                         </div>
                     }
                 </div>
