@@ -1,17 +1,10 @@
-.app {
+.app {          /** Div Father */
     background-color: #0D1117;
     min-height: 100vh;
 }
-.app .teste {
-    height: 60px;
-    width: 100%;
-    background-color: #fff;
-    position: fixed;
-    top: 0;
-    visibility: hidden;
-}
 
-.app .header {
+/** **/
+.app .header {      /** Header */
     display: flex;
     align-items: center;
     padding-left: 50px;
@@ -19,12 +12,7 @@
     background-color: #161B22;
     z-index: 999;
 }
-.app .header .logo {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-}
-.app .header .inputDiv {
+.app .header .inputDiv {        /** Div com input e SearchIcon */
     display: flex;
     align-items: center;
     margin-left: 15px;
@@ -33,7 +21,7 @@
     width: 250px;
     border-radius: 5px;
 }
-.app .header .inputDiv .input {
+.app .header .inputDiv .input {         /** Input */
     border: none;
     height: 25px;
     padding-left: 10px;
@@ -41,18 +29,18 @@
     flex: 1;
     color: #C3C6CA;
 }
-.app .header .inputDiv .searchIcon {
+.app .header .inputDiv .searchIcon {        /** Div com SearchIcon */
     width: 30px;
     height: 25px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
+/** **/
 
 
-
-
-.app .changeView {
+/** **/
+.app .changeView {      /** Div com buttons Overview e Repositories */
     display: flex;
     border-bottom: 1px solid #777;
     z-index: 999;
@@ -60,7 +48,7 @@
     height: 60px;
     position: relative;
 }
-.app .changeView .hiddenInfo {
+.app .changeView .hiddenInfo {      /** Div escondida com o avatar e o nome do user que aparece ao scrollar a tela um poucoi */
     height: 60px;
     display: flex;
     align-items: center;
@@ -68,7 +56,7 @@
     left: 50px;
     animation: fade 500ms;
 }
-.app .changeView .defaultBtn {
+.app .changeView .defaultBtn {      /** Button Default */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -78,12 +66,12 @@
     border-bottom: 2px solid transparent;
     transition: 250ms;
 }
-.app .changeView .defaultBtn .defaultText {
+.app .changeView .defaultBtn .defaultText {     /** Button text */
     color: #777;
     margin: -3px 0 0 10px;
     transition: 250ms;
 }
-.app .changeView .defaultBtn .qtdRepos {
+.app .changeView .defaultBtn .qtdRepos {        /** Div com a quantidade de repositórios */
     padding: 3px 7px;
     background-color: #262C32;
     border-radius: 15px;
@@ -92,47 +80,46 @@
     justify-content: center;
     margin-left: 10px;
 }
+/** **/
 
 
-
-
-
-.app .mainDiv {
+/** **/
+.app .mainDiv {     /** Div main separada em 2 */
     display: grid;
     grid-template-columns: 24% 75%;
     grid-gap: 1%;
     padding: 30px 50px 50px 50px;
 }
-.app .mainDiv .side {
+.app .mainDiv .side {       /** Div only */
     display: flex;
     flex-direction: column;
 }
-.app .mainDiv .side .img {
+.app .mainDiv .side .img {      /** Avatar do user */
     width: 300px;
     height: 300px;
     border-radius: 50%;
 }
-.app .mainDiv .side .userInfo {
+.app .mainDiv .side .userInfo {     /** Div com as infos do user */
     display: flex;
     flex-direction: column;
     margin-top: 20px;
 }
-.app .mainDiv .side .userInfo .name {
+.app .mainDiv .side .userInfo .name {       /** Nome */
     color: #C3C6CA;
     font-size: 30px;
     width: 500px;
 }
-.app .mainDiv .side .userInfo .login {
+.app .mainDiv .side .userInfo .login {      /** Login */
     color: #777;
     font-size: 23px;
 }
-.app .mainDiv .side .btns {
+.app .mainDiv .side .btns {     /** Div com 2 btns */
     display: grid;
     grid-template-columns: 75% 22%;
     grid-gap: 3%;
     margin-top: 15px;
 }
-.app .mainDiv .side .btns .btn {
+.app .mainDiv .side .btns .btn {        /** Btn padrão */
     color: #aaa;
     background-color: #21262D;
     height: 35px;
@@ -143,34 +130,31 @@
     transition: 150ms;
     cursor: pointer;
 }
-.app .mainDiv .side .btns .btn span {
+.app .mainDiv .side .btns .btn span {       /** Texto do btn */
     font-weight: bold;
     font-size: 14px;
     color: #C3C6CA;
 }
-
-.app .mainDiv .side .bio {
+.app .mainDiv .side .bio {      /** Bio (caso tenha) */
     color: #C3C6CA;
     margin-top: 15px;
     font-size: 18px;
 }
-
-
-.app .mainDiv .side .followAndStars {
+.app .mainDiv .side .followAndStars {       /** Div que mostra os followers, following e stars do user */
     display: flex;
     margin-top: 15px;
     align-items: center;
     flex-wrap: wrap;
 }
-.app .mainDiv .side .followAndStars .follow {
+.app .mainDiv .side .followAndStars .follow {       /** Div com followers e following */
     display: flex;
     align-items: center;
 }
-.app .mainDiv .side .followAndStars .stars {
+.app .mainDiv .side .followAndStars .stars {        /** Div com stars */
     display: flex;
     align-items: center;
 }
-.app .mainDiv .side .followAndStars .smallestBall {
+.app .mainDiv .side .followAndStars .smallestBall {     /** Bola pequena para separar as infos */
     width: 5px;
     height: 5px;
     border-radius: 50%;
@@ -179,50 +163,46 @@
     align-items: center;
     margin: 4px 10px 0 10px;
 }
-.app .mainDiv .side .followAndStars .followText {
+.app .mainDiv .side .followAndStars .followText {       /** Texto padrão para essa div */
     color: #999;
 }
-
-.app .mainDiv .side .emailDiv {
+.app .mainDiv .side .emailDiv {         /** Div com email (se tiver) */
     display: flex;
     margin-top: 15px;
     align-items: center;
 }
-.app .mainDiv .side .email {
+.app .mainDiv .side .email {            /** Email */
     margin-left: 10px;
     color: #C3C6CA;
     text-decoration: none;
 }
-
-.app .mainDiv .side .moreInfo {
+.app .mainDiv .side .moreInfo {     /** Div com mais infos (se tiver) */
     margin-top: 15px;
 }
-.app .mainDiv .side .moreInfo .defaultInfoDiv {
+.app .mainDiv .side .moreInfo .defaultInfoDiv {     /** Div default */
     display: flex;
     align-items: center;
     margin-top: 5px;
 }
-.app .mainDiv .side .moreInfo .defaultInfoDiv .link {
+.app .mainDiv .side .moreInfo .defaultInfoDiv .link {       /** Link para blog, twitter, etc */
     color: #C3C6CA;
     text-decoration: none;
     margin-left: 10px;
     transition: 250ms;
     border-bottom: 1px solid transparent;
 }
+/** **/
 
 
 
-
-
-
-
-.app .mainDiv .side .arrayDiv {
+/** Tem 2 array, o de Overview e Repositories, esse Style serve para os 2 **/
+.app .mainDiv .side .arrayDiv {     /** Div com o array inteiro (apenas para o Overview) */
     display: grid;
     grid-template-columns: auto auto;
     grid-gap: 20px;
     margin-left: 50px;
 }
-.app .mainDiv .side .arrayDiv .arrayItem {
+.app .mainDiv .side .arrayDiv .arrayItem {          /** Div com 1 item do array (apenas para o Overview) */
     border: 1px solid #ddd;
     border-radius: 10px;
     height: 100px;
@@ -230,18 +210,18 @@
     display: flex;
     flex-direction: column;
 }
-.app .mainDiv .side .linkDiv {
+.app .mainDiv .side .linkDiv {      /** Div com o link para o repositórios */
     display: flex;
     flex-direction: column;
     align-items: flex-start;
 }
-.app .mainDiv .side .link {
+.app .mainDiv .side .link {     /** Link com o repositório */
     text-decoration: none;
     font-size: 20px;
     color: #58A6FA;
     border-bottom: 1px solid transparent;
 }
-.app .mainDiv .side .description {
+.app .mainDiv .side .description {      /** Descrição do projeto */
     color: #999;
     font-size: 14px;
     margin-top: 5px;
@@ -251,40 +231,40 @@
     text-overflow: ellipsis;
     width: 200px;
 }
-.app .mainDiv .side .languageDiv {
+.app .mainDiv .side .languageDiv {      /** Div com a linguagem, stars, fork e data de update do repositório */
     display: flex;
     align-items: center;
     margin-top: 25px;
 }
-.app .mainDiv .side .languageDiv .ballFull {
+.app .mainDiv .side .languageDiv .ballFull {        /** Div com uma bola que muda o background dependendo da linguagem mostrada */
     width: 15px;
     height: 15px;
     border-radius: 50%;
 }
-.app .mainDiv .side .languageDiv .language {
+.app .mainDiv .side .languageDiv .language {        /** Linguagem mostrada */
     margin: 0 15px 0 5px;
     color: #999;
 }
-.app .mainDiv .side .languageDiv .starDiv {
+.app .mainDiv .side .languageDiv .starDiv {     /** Div com star */
     display: flex;
     align-items: center;
 }
-.app .mainDiv .side .languageDiv .forkDiv {
+.app .mainDiv .side .languageDiv .forkDiv {     /** Div com fork */
     display: flex;
     align-items: center;
     margin-left: 15px;
 }
-.app .mainDiv .side .languageDiv .starText {
+.app .mainDiv .side .languageDiv .starText {    /** Texto padrão para essa div */
     color: #999;
 }
 
 /** Array Repositories */
-.app .mainDiv .side .arrayDivRepos {
+.app .mainDiv .side .arrayDivRepos {        /** Div com o array inteiro (apenas para Repositories) */
     display: flex;
     flex-direction: column;
     margin-left: 50px;
 }
-.app .mainDiv .side .arrayDivRepos .repositories {
+.app .mainDiv .side .arrayDivRepos .repositories {      /** Div com array unico (apenas para Repositories) */
     display: flex;
     justify-content: space-between;
     width: 100%;
@@ -292,18 +272,16 @@
     padding: 15px;
     border-bottom: 1px solid #777;
 }
-.app .mainDiv .side .arrayDivRepos .repositories .reposSideDiv {
+.app .mainDiv .side .arrayDivRepos .repositories .reposSideDiv {        /** Div lateral na esquerda (apenas para Repositories) */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
 }
-.app .mainDiv .side .arrayDivRepos .repositories .reposSideDiv .reposLink {
+.app .mainDiv .side .arrayDivRepos .repositories .reposSideDiv .reposLink {     /** Link para Repositório, acrescenta só um tamanho maior */
     font-size: 22px;
 }
-
-
-.app .mainDiv .side .arrayDivRepos .repositories .btn {
+.app .mainDiv .side .arrayDivRepos .repositories .btn {     /** Button com Star (apenas no Repositories) */
     color: #aaa;
     background-color: #21262D;
     height: 35px;
@@ -316,45 +294,41 @@
     transition: 150ms;
     cursor: pointer;
 }
-.app .mainDiv .side .arrayDivRepos .repositories .btn span {
+.app .mainDiv .side .arrayDivRepos .repositories .btn span {        /** Texto para o button com star (apenas no Repositories) */
     font-weight: bold;
     font-size: 14px;
     color: #C3C6CA;
 }
+/** **/
 
 
-.app .header .inputDiv:focus-within {
+/** EFFECTS **/
+.app .header .inputDiv:focus-within {       /** Aumenta o tamanho da Div com input */
     animation: growWidth 400ms;
     border: 1px solid #58A6FA;
     animation-fill-mode: forwards;
 }
-.input:focus {
+.input:focus {      /** Retira o outline do input */
     outline: 0;
 }
-.app .changeView .defaultBtn:hover {
+.app .changeView .defaultBtn:hover {        /** Muda a cor da borda de baixo */
     border-bottom: 2px solid #999;
 }
-.app .changeView .defaultBtn:hover .defaultText {
+.app .changeView .defaultBtn:hover .defaultText {       /** Muda a cor do texto */
     color: #C3C6CA;
 }
-.app .mainDiv .side .btns .btn:hover, .app .mainDiv .side .arrayDivRepos .repositories .btn:hover {
+.app .mainDiv .side .btns .btn:hover, .app .mainDiv .side .arrayDivRepos .repositories .btn:hover {     /** Muda o background e a cor da borda */
     background-color: #30363D;
     border: 1px solid #C3C6CA;
 }
-.app .mainDiv .side .moreInfo .defaultInfoDiv .link:hover {
+.app .mainDiv .side .moreInfo .defaultInfoDiv .link:hover {     /** Muda a cor do texto e da borda de baixo */
     color: #58A6FA;
     border-bottom: 1px solid #58A6FA;
 }
-.app .mainDiv .side .link:hover {
+.app .mainDiv .side .link:hover {       /** Muda a cor da borda de baixo */
     border-bottom: 1px solid #58A6FA;
 }
-
-
-
-@keyframes growWidth {
+@keyframes growWidth {      /** Aumenta o tamanho em width */
     to{width: 350px}
 }
-@keyframes fade {
-    from{opacity: 0}
-    to{opacity: 1}
-}
+/** **/
