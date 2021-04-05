@@ -7,11 +7,11 @@ Esse projeto foi feito com o intuíto de treinar o consumo de API com fetch.
 
 ## Features
 
-- Pesquisar usuários do Github
-- Retorna a pesquisa com as infos do usuário e os seus repositórios
+- Pesquisa usuários do Github
+- Pesquisa repositórios do usuário
 
 ## Meta
 
 - Matheus Gomes
-- Github - https://github.com/MatheusGomesRocha
+- Email - matheusgomes192@hotmail.com
 - Linkedin - https://www.linkedin.com/in/matheus-gomes-2a61a8190/ 
